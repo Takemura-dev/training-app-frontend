@@ -1,11 +1,18 @@
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import LoginPage from './pages/LoginPage'
+
 function App() {
-  return (
-      <div className="bg-blue-500 text-white p-8">
-        <h1 className="text-3xl font-bold">
-            筋トレ記録アプリ
-        </h1>
-      </div>
-  )
+    return (
+        <BrowserRouter>
+            <Routes>
+                {/* ログイン画面 */}
+                <Route path="/login" element={<LoginPage />} />
+
+                {/* トップページはログインにリダイレクト */}
+                <Route path="/" element={<Navigate to="/login" />} />
+            </Routes>
+        </BrowserRouter>
+    )
 }
 
 export default App
